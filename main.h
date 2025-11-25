@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include <stdio.h>
 
 #ifndef MAIN_H
@@ -14,15 +15,16 @@
 typedef struct formats
 {
 	char *format;
-	void (*func)(char *);
+	void (*func)(void *);
 } ftype;
 
-void (*get_format(char *s))(char *);
+void (*get_format(char *s))(void *);
 
 int count(char *formats);
 void _printf(char *formats, ...);
 
-void format_char(char *arg);
-void format_string(char *arg);
+void print_char(void *arg);
+void print_string(void *arg);
+void print_digit(int n);
 
 #endif

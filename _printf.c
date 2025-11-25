@@ -27,10 +27,10 @@ int count(char *formats)
 void _printf(char *formats, ...)
 {
 	va_list args;
-	int index, length;
-	void (*call)(char *);
+	int index;
+	char character;
+	void (*call)(void *);
 
-	length = count(formats);
 	va_start(args, formats);
 
 	index = 0;
@@ -48,9 +48,11 @@ void _printf(char *formats, ...)
 			continue;
 		}
 
+		character = formats[index];
+		write(1, &character, 1);
+
 		index++;
 	}
 
 	va_end(args);
-	printf("%d\n", length);
 }
