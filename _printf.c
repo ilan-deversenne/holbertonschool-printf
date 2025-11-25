@@ -38,15 +38,6 @@ void _printf(char *formats, ...)
 	{
 		if (*(formats + index) == '%')
 		{
-			/*
-				*(formats + index + 1)
-
-				Est notre format le charactère après "%"
-
-				Fix: Prend tout se qu'il y'a après le %
-
-			*/
-
 			call = get_format(formats + index + 1);
 			if (call != NULL)
 				call(va_arg(args, void *));
