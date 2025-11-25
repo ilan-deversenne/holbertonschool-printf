@@ -22,6 +22,7 @@ void (*get_format(char *s))(char *);
 int count(char *formats);
 void _printf(char *formats, ...);
 
-void format_string(char *formats);
+void format_char(char *arg);
+void format_string(char *arg);
 
 #endif
