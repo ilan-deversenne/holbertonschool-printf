@@ -5,7 +5,11 @@
   */
 void print_char(void *arg)
 {
+<<<<<<< Updated upstream
 	write(1, &arg, 1);
+=======
+	return (write(1, arg, 1));
+>>>>>>> Stashed changes
 }
 
 /*
