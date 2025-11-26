@@ -2,5 +2,5 @@
 
 int _putchar(char c)
 {
-        write format_char (char *arg)
+	write(1, &arg, 1);
 }
