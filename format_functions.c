@@ -12,7 +12,20 @@ void print_char(void *arg)
   * print_string
   */
 void print_string(void *arg)
-{}
+{ 
+	int len;
+
+	char *str = (char *) arg;
+
+	len = 0;
+
+	while (str[len] != '\0')
+	{
+			
+			len++;
+			write(1, str, len);
+	}
+}
 
 /*
   * print_digit
