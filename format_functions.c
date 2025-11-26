@@ -1,18 +1,34 @@
 #include "main.h"
-#include <unistd.h>
 
 /*
-  * format_char
+  * print_char
   */
-void format_char(char *arg)
+void print_char(void *arg)
 {
-	printf("format_char->formats: %s\n", arg);
+	write(1, &arg, 1);
 }
 
 /*
-  * format_string
+  * print_string
   */
-void format_string(char *arg)
+void print_string(void *arg)
+{}
+
+/*
+  * print_digit
+  */
+void print_digit(int n)
 {
-	printf("format_string->formats: %s\n", arg);
+	int reversed;
+
+	printf("%d\n", n);
+
+	while (n < 9)
+	{
+		reversed = (reversed * 10) + (n % 10);
+
+		n = n / 10;
+	}
+
+	printf("%d\n", reversed);
 }
