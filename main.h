@@ -19,7 +19,8 @@ typedef struct formats
 
 int (*get_format(char *s))(void *);
 
-int count(char *formats);
+char *_strncpy(char *dest, char *src, int n);
+
 int _printf(char *formats, ...);
 
 int print_char(void *arg);
