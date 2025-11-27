@@ -14,16 +14,16 @@
 typedef struct formats
 {
 	char *format;
-	void (*func)(void *);
+	int (*func)(void *);
 } ftype;
 
-void (*get_format(char *s))(void *);
+int (*get_format(char *s))(void *);
 
 int count(char *formats);
 int _printf(char *formats, ...);
 
-void print_char(void *arg);
-void print_string(void *arg);
-void print_digit(void *n);
+int print_char(void *arg);
+int print_string(void *arg);
+int print_digit(void *n);
 
 #endif

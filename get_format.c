@@ -1,6 +1,6 @@
 #include "main.h"
 
-void (*get_format(char *s))(void *)
+int (*get_format(char *s))(void *)
 {
 	int index;
 
