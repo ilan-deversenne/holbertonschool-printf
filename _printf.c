@@ -2,7 +2,6 @@
 
 void _printf(char *formats, ...)
 {
-	void *arg;
 	int index;
 	va_list args;
 	char character;
