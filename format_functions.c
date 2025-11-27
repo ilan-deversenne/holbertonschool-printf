@@ -74,20 +74,15 @@ void print_digit(void *arg)
 	if (arg == NULL)
 		return;
 
-	printf("a");
-
-	number = *( (int *)arg );
-	printf("b");
+	number = *(int *)arg;
 
 	if (number == 0)
 	{
-		printf("c");
 		n = '0';
 		write(1, &n, 1);
 
 		return;
 	}
 
-	printf("d");
 	recursive_print_digit(number);
 }
