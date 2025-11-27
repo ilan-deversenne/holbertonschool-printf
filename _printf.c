@@ -3,20 +3,23 @@
 int _printf(char *formats, ...)
 {
 	int index;
+	int length;
 	va_list args;
 	char character;
-	void (*call)(void *);
+	int (*call)(void *);
+
+	index = 0;
+	length = 0;
 
 	va_start(args, formats);
 
-	index = 0;
 	while (*(formats + index) != '\0')
 	{
 		if (*(formats + index) == '%')
 		{
 			call = get_format(formats + index + 1);
 			if (call != NULL)
-				call(va_arg(args, void *));
+				length += call(va_arg(args, void *));
 
 			index += 2;
 			continue;
@@ -26,9 +29,10 @@ int _printf(char *formats, ...)
 		write(1, &character, 1);
 
 		index++;
+		length++;
 	}
 
 	va_end(args);
 
-	return (0);
+	return (length);
 }
