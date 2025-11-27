@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # printf
 
 This project is a custom implementation of the standard C library function `printf`, created as part of the Holberton School curriculum.  
