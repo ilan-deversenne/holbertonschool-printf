@@ -1,6 +1,6 @@
 #include "main.h"
 
-void _printf(char *formats, ...)
+int _printf(char *formats, ...)
 {
 	int index;
 	va_list args;
@@ -29,4 +29,6 @@ void _printf(char *formats, ...)
 	}
 
 	va_end(args);
+
+	return (0);
 }

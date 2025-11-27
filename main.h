@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>
 
 #ifndef MAIN_H
 #define MAIN_H
@@ -21,7 +20,7 @@ typedef struct formats
 void (*get_format(char *s))(void *);
 
 int count(char *formats);
-void _printf(char *formats, ...);
+int _printf(char *formats, ...);
 
 void print_char(void *arg);
 void print_string(void *arg);
