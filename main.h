@@ -25,6 +25,6 @@ void _printf(char *formats, ...);
 
 void print_char(void *arg);
 void print_string(void *arg);
-void print_digit(int n);
+void print_digit(void *n);
 
 #endif
