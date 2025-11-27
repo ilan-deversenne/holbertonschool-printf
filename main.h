@@ -19,7 +19,7 @@ typedef struct formats
 
 int (*get_format(char *s))(void *);
 
-char *_strncpy(char *dest, char *src, int n);
+char *_strcpy(char *dest, char *src);
 
 int _printf(char *formats, ...);
 
