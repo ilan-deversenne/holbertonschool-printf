@@ -3,32 +3,70 @@
 /*
   * print_char
   */
-void print_char(void *arg)
+int print_char(void *arg)
 {
 	write(1, &arg, 1);
+
+	return (1);
 }
 
 /*
   * print_string
   */
-void print_string(void *arg)
-{}
+int print_string(void *arg)
+{
+	int len;
+	char *str = (char *)arg;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+
+	write(1, str, len);
+
+	return (len);
+}
+
+int recursive_print_digit(int number)
+{
+	char n;
+
+	if (number == 0)
+		return (0);
+
+	recursive_print_digit(number / 10);
+
+	n = '?';
+	if (number % 10 <= 9)
+		n = '0' + (number % 10);
+
+	write(1, &n, 1);
+
+	return (0);
+}
 
 /*
   * print_digit
   */
-void print_digit(int n)
+int print_digit(void *arg)
 {
-	int reversed;
+	char n;
+	int number;
 
-	printf("%d\n", n);
+	if (arg == NULL)
+		return (0);
 
-	while (n < 9)
+	number = *(int *)arg;
+
+	if (number == 0)
 	{
-		reversed = (reversed * 10) + (n % 10);
+		n = '0';
+		write(1, &n, 1);
 
-		n = n / 10;
+		return (0);
 	}
 
-	printf("%d\n", reversed);
+	recursive_print_digit(number);
+
+	return (0);
 }

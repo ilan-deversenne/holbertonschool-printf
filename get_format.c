@@ -1,12 +1,13 @@
 #include "main.h"
 
-void (*get_format(char *s))(void *)
+int (*get_format(char *s))(void *)
 {
 	int index;
 
 	ftype format_funcs[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"d", print_digit},
 		{NULL, NULL}
 	};
 

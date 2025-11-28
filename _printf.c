@@ -1,48 +1,25 @@
 #include "main.h"
 
-int count(char *formats)
+int _printf(char *formats, ...)
 {
-	int index, length;
+	int index;
+	int length;
+	va_list args;
+	char character;
+	int (*call)(void *);
 
 	index = 0;
 	length = 0;
-	while (*(formats + index) != '\0')
-	{
-		if (*(formats + index) == '%')
-		{
-			/*call = get_format(formats + i);
-			if (call != NULL) */
-
-			index += 2;
-			continue;
-		}
-
-		index++;
-		length++;
-	}
-
-	return (length);
-}
-
-void _printf(char *formats, ...)
-{
-	va_list args;
-	int index;
-	char character;
-	void (*call)(void *);
 
 	va_start(args, formats);
 
-	index = 0;
 	while (*(formats + index) != '\0')
 	{
 		if (*(formats + index) == '%')
 		{
 			call = get_format(formats + index + 1);
 			if (call != NULL)
-				call(va_arg(args, void *));
-			else
-				printf("call: NULL\n"); /* DEBUG */
+				length += call(va_arg(args, void *));
 
 			index += 2;
 			continue;
@@ -52,7 +29,10 @@ void _printf(char *formats, ...)
 		write(1, &character, 1);
 
 		index++;
+		length++;
 	}
 
 	va_end(args);
+
+	return (length);
 }
