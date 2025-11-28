@@ -51,6 +51,9 @@ gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 ./printf
 ```
 
+## Flowchart (made on lucid.app)
+![Flowchart](https://github.com/ilan-deversenne/holbertonschool-printf/blob/main/flowchart.png?raw=true)
+
 ## Help
 
 Any advise for common problems or issues.
